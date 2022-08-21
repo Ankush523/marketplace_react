@@ -2,13 +2,13 @@ import React from 'react';
 import { useContract } from 'wagmi';
 import { useSigner } from 'wagmi';
 
-const GetContract = () => {
+const GetContract = (addr, abi_data) => {
 
     const{data:signer}=useSigner();
 
     const contract = useContract({
-        addressOrName: '',
-        contractInterface: VotechainABI,
+        addressOrName: addr,
+        contractInterface: abi_data,
         signerOrProvider: signer,
       })
 
