@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
+    "@rainbow-me/rainbowkit": "^0.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "wagmi": "^0.6.4",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -48,7 +50,7 @@
     "@typechain/hardhat": "^6.1.2",
     "autoprefixer": "^10.4.8",
     "chai": "^4.2.0",
-    "ethers": "^5.4.7",
+    "ethers": "^5.7.0",
     "hardhat": "^2.10.2",
     "hardhat-gas-reporter": "^1.0.8",
     "postcss": "^8.4.16",
