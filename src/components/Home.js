@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
+import GetContract from '../hooks/GetContract'
+import MarketplaceAbi from "../contracts/ABIs/Marketplace.json";
+import MarketplaceAddress from "../contracts/Contract_Address/Marketplace-Address.json";
+import NFTAbi from "../contracts/ABIs/NFT.json";
+import NFTAddress from "../contracts/Contract_Address/NFTAddress.json";
 
-const Home = ({ marketplace, nft }) => {
-  const [loading, setLoading] = useState(true)
-  const [items, setItems] = useState([])
+const Home = () => {
+    const [loading, setLoading] = useState(true)
+    const [items, setItems] = useState([])  
+    const marketplace = GetContract(MarketplaceAddress,MarketplaceAbi);
+    const nft = GetContract(NFTAddress,NFTAbi);
+
   const loadMarketplaceItems = async () => {
     // Load all unsold items
     const itemCount = await marketplace.itemCount()
+    console.log(itemCount)
     let items = []
     for (let i = 1; i <= itemCount; i++) {
       const item = await marketplace.items(i)
@@ -40,7 +49,7 @@ const Home = ({ marketplace, nft }) => {
 
   useEffect(() => {
     loadMarketplaceItems()
-  }, [])
+  })
   if (loading) return (
     <div>
       <h2>Loading...</h2>
