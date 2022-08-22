@@ -44,7 +44,7 @@ function App() {
             <label>Loading...</label>
           ) : (
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home marketplace={marketplace} nft={nft}/>} />
               <Route path="/create" element={<CreateItem />} />
               <Route path="/listed-items" element={<ListedItems />} />
               <Route path="/purchased-items" element={<PurchasedItems />} />
