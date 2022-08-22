@@ -78,8 +78,8 @@ contract Marketplace is ReentrancyGuard {
         //require(msg.value >= _totalPrice, "not enough ether to cover item price and market fee");
         require(!item.sold, "item already sold");
         // pay seller and feeAccount
-        //item.seller.transfer(item.price);
-        //feeAccount.transfer(_totalPrice - item.price);
+          item.seller.transfer(item.price);
+          feeAccount.transfer(_totalPrice - item.price);
         // update item to sold
         item.sold = true;
         // transfer nft to buyer
@@ -96,5 +96,10 @@ contract Marketplace is ReentrancyGuard {
     }
     function getTotalPrice(uint _itemId) view public returns(uint){
         return((items[_itemId].price*(100 + feePercent))/100);
+    }
+
+    function getItemCount(uint _itemCount) public view returns(uint)
+    {
+      return _itemCount;
     }
 }
