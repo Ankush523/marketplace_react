@@ -8,7 +8,7 @@ import NFTAbi from "../src/contracts/ABIs/NFT.json";
 import NFTAddress from "../src/contracts/Contract_Address/NFTAddress.json";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Create from "./components/Create";
+import Create from "./components/CreateItem";
 import ListedItems from "./components/ListedItems";
 import PurchasedItems from "./components/PurchasedItems";
 function App() {
@@ -42,7 +42,7 @@ function App() {
           ) : (
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/create" element={<Create />} />
+              <Route path="/create" element={<CreateItem />} />
               <Route path="/listed-items" element={<ListedItems />} />
               <Route path="/purchased-items" element={<PurchasedItems />} />
             </Routes>
