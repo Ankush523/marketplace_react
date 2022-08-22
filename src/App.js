@@ -8,13 +8,16 @@ import NFTAbi from "../src/contracts/ABIs/NFT.json";
 import NFTAddress from "../src/contracts/Contract_Address/NFTAddress.json";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Create from "./components/CreateItem";
+import CreateItem from "./components/CreateItem";
 import ListedItems from "./components/ListedItems";
 import PurchasedItems from "./components/PurchasedItems";
+
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [nft, setNFT] = useState({});
   const [marketplace, setMarketplace] = useState({});
+  const [tip,setTip] = useState(0);
 
   const web3Handler = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
